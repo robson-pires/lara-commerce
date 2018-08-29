@@ -1,0 +1,14 @@
+{
+    "name": "robson-pires/lara-commerce",
+    "description": "An e-commerce made with Laravel, just for fun.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Robson Pires",
+            "email": "robson.pires@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
