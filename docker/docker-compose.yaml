@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  lara-commerce:
+    container_name: lara-commerce
+    build: .
+    volumes:
+      - ../:/app/
+    environment:
+      APP_ENV: local
+    ports:
+      - 8013:80
+    #command: ["php", "-S" , "0.0.0.0:80", "-t", "/app/public"]
+
+  lara-commerce-db:
+    image: mysql:5.6
+    container_name: lara-commerce-db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: lara
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      TERM: xterm
+    volumes:
+      - ./entrypoint-initdb.d:/entrypoint-initdb.d
+      - lara-commerce-db:/var/lib/mysql
+
+volumes:
+  lara-commerce-db:
+    driver: local
