@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
  git \
  zip \
  unzip \
+ gnupg \
  build-essential \
  && rm -rf /var/lib/apt/lists/*
 
@@ -27,5 +28,11 @@ RUN docker-php-ext-install \
 
 RUN pecl install xdebug \
    && docker-php-ext-enable xdebug
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+
+RUN apt-get update && apt-get install -y \
+ nodejs \
+ && rm -rf /var/lib/apt/lists/*
 
 CMD ["tail", "-f", "/dev/null"]
