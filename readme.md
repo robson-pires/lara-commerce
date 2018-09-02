@@ -9,5 +9,5 @@ cd docker;
 docker-compose build;
 docker-compose run lara-commerce composer install;
 docker-compose run lara-commerce npm install;
-docker-compose up -d;
+docker-compose up;
 ```
